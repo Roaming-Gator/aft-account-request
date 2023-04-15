@@ -26,6 +26,10 @@ module "slackgpt-dev" {
     SSOUserFirstName = "Paul"
     SSOUserLastName  = "Nickerson"
   }
+  change_management_parameters = {
+    change_requested_by = "Paul Nickerson"
+    change_reason       = "Slackgpt dev deployment"
+  }
   account_tags = {
     "environment" = "Dev"
   }
