@@ -31,7 +31,8 @@ module "slackgpt-dev" {
     change_reason       = "Slackgpt dev deployment"
   }
   account_tags = {
-    "environment" = "Dev"
+    "environment" = "dev"
   }
 
+  account_customizations_name = "slackgpt"
 }

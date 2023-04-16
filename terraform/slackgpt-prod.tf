@@ -34,4 +34,5 @@ module "slackgpt-prod" {
     "environment" = "prod"
   }
 
+  account_customizations_name = "slackgpt"
 }
