@@ -21,7 +21,7 @@ module "slackgpt-prod" {
     # Syntax for top-level OU
     ManagedOrganizationalUnit = "Deployments"
     # Syntax for nested OU
-    SSOUserEmail     = var.aws_admin_username
+    SSOUserEmail     = var.admin_email
     SSOUserFirstName = "Paul"
     SSOUserLastName  = "Nickerson"
   }
