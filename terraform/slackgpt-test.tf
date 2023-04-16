@@ -22,7 +22,7 @@ module "slackgpt-test" {
     ManagedOrganizationalUnit = "Deployments"
     # Syntax for nested OU
     # ManagedOrganizationalUnit = "Sandbox (ou-xfe5-a8hb8ml8)"
-    SSOUserEmail     = data.jinja_template.slackgpt-test-email.result
+    SSOUserEmail     = var.admin_email
     SSOUserFirstName = "Paul"
     SSOUserLastName  = "Nickerson"
   }
