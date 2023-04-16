@@ -21,8 +21,7 @@ module "slackgpt-test" {
     # Syntax for top-level OU
     ManagedOrganizationalUnit = "Deployments"
     # Syntax for nested OU
-    # ManagedOrganizationalUnit = "Sandbox (ou-xfe5-a8hb8ml8)"
-    SSOUserEmail     = var.admin_email
+    SSOUserEmail     = var.aws_admin_username
     SSOUserFirstName = "Paul"
     SSOUserLastName  = "Nickerson"
   }
