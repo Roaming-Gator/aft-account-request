@@ -21,7 +21,7 @@ module "slackgpt-prod" {
     # Syntax for top-level OU
     ManagedOrganizationalUnit = "Deployments"
     # Syntax for nested OU
-    SSOUserEmail     = var.admin_email
+    SSOUserEmail     = data.jinja_template.slackgpt-test-email.result
     SSOUserFirstName = "Paul"
     SSOUserLastName  = "Nickerson"
   }
