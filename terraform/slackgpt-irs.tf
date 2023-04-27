@@ -2,26 +2,26 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-data "jinja_template" "slackgpt-irsteam-email" {
+data "jinja_template" "slackgpt-irs-email" {
   template = var.account_email_template
   context {
     data = jsonencode({
-      account_name = "slackgpt-irsteam"
+      account_name = "slackgpt-irs"
     })
     type = "json"
   }
 }
 
-module "slackgpt-irsteam" {
+module "slackgpt-irs" {
   source = "./modules/aft-account-request"
 
   control_tower_parameters = {
-    AccountEmail = data.jinja_template.slackgpt-irsteam-email.result
-    AccountName  = "slackgpt-irsteam"
+    AccountEmail = data.jinja_template.slackgpt-irs-email.result
+    AccountName  = "slackgpt-irs"
     # Syntax for top-level OU
     ManagedOrganizationalUnit = "Deployments"
     # Syntax for nested OU
-    SSOUserEmail     = data.jinja_template.slackgpt-irsteam-email.result
+    SSOUserEmail     = data.jinja_template.slackgpt-irs-email.result
     SSOUserFirstName = "Paul"
     SSOUserLastName  = "Nickerson"
   }
