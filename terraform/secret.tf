@@ -2,26 +2,26 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-data "jinja_template" "secrets-email" {
+data "jinja_template" "secret-email" {
   template = var.account_email_template
   context {
     data = jsonencode({
-      account_name = "secrets"
+      account_name = "secret"
     })
     type = "json"
   }
 }
 
-module "secrets" {
+module "secret" {
   source = "./modules/aft-account-request"
 
   control_tower_parameters = {
-    AccountEmail = data.jinja_template.secrets-email.result
-    AccountName  = "secrets"
+    AccountEmail = data.jinja_template.secret-email.result
+    AccountName  = "secret"
     # Syntax for top-level OU
     ManagedOrganizationalUnit = "Security"
     # Syntax for nested OU
-    SSOUserEmail     = data.jinja_template.secrets-email.result
+    SSOUserEmail     = data.jinja_template.secret-email.result
     SSOUserFirstName = "Paul"
     SSOUserLastName  = "Nickerson"
   }
@@ -33,5 +33,5 @@ module "secrets" {
     "environment" = "prod"
   }
 
-  account_customizations_name = "secrets"
+  account_customizations_name = "secret"
 }
